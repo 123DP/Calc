@@ -73,6 +73,8 @@ class CalcService: Service() {
             }
         }
         vibratePhone(false)
+        running = false
+        stopSelf()
     }
 
     private fun loadDataFromStorage(i: Int): String? {
@@ -117,6 +119,7 @@ class CalcService: Service() {
 
         withContext(Dispatchers.IO) {
             Log.i("Calc", "IO: ")
+            delay(15000)
             var attempts = 0
             while (true) {
                 Log.i("Calc", "In Loop")
